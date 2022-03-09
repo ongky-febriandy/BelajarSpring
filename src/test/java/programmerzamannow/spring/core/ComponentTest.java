@@ -5,7 +5,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import programmerzamannow.spring.core.service.ProductService;
+import programmerzamannow.spring.core.data.service.ProductService;
+import programmerzamannow.spring.core.repository.ProductRepository;
 
 public class ComponentTest {
 
@@ -24,5 +25,12 @@ public class ComponentTest {
         ProductService productService2 = applicationContext.getBean("productService", ProductService.class);
 
         Assertions.assertSame(productService1, productService2);
+    }
+
+    void testConstructorDependencyInjection(){
+        ProductService productService = applicationContext.getBean(ProductService.class);
+        ProductRepository productRepository = applicationContext.getBean(ProductRepository.class);
+
+//        Assertions.assertSame(productRepository, productService.getProductRepository);
     }
 }
