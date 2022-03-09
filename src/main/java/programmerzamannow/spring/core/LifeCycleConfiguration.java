@@ -3,6 +3,7 @@ package programmerzamannow.spring.core;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import programmerzamannow.spring.core.data.Connection;
+import programmerzamannow.spring.core.data.Server;
 
 
 @Configuration
@@ -13,6 +14,12 @@ public class LifeCycleConfiguration {
 
         return new Connection();
 
+    }
+
+//    @Bean(initMethod = "Start", destroyMethod = "Stop")
+    @Bean
+    public Server server(){
+        return new Server();
     }
 
 }
