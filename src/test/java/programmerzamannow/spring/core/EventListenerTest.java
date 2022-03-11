@@ -7,6 +7,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import programmerzamannow.spring.core.listener.LoginSuccessListener;
+import programmerzamannow.spring.core.listener.UserListener;
 import programmerzamannow.spring.core.service.UserService;
 
 public class EventListenerTest {
@@ -14,7 +15,8 @@ public class EventListenerTest {
     @Configuration
     @Import({
             UserService.class,
-            LoginSuccessListener.class
+            LoginSuccessListener.class,
+            UserListener.class
     })
     public static class TestConfiguration{
 
